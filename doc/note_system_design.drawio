@@ -1,0 +1,53 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="gFc7Q4l3AWcoK-AcBUlk">
+    <mxGraphModel dx="1413" dy="1014" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="mF6i2I-UvG-eMGTX8esO-45" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Times New Roman;fontSize=21;" value="" vertex="1">
+          <mxGeometry height="520" width="520" x="100" y="130" as="geometry" />
+        </mxCell>
+        <UserObject label="" mermaidData="{&#xa;  &quot;data&quot;: &quot;flowchart TD\n    START[\&quot;START\&quot;]\n    DECOMPOSE[\&quot;decompose_query\&quot;]\n    RETRIEVE[\&quot;retrieve_docs\&quot;]\n    GRADE[\&quot;grade_docs\&quot;]\n    REWRITE[\&quot;rewrite_query\&quot;]\n    MULTI_HOP[\&quot;multi_hop\&quot;]\n    GEN_SUB_Q[\&quot;generate_sub_q\&quot;]\n    GEN_ANSWER[\&quot;generate_answer\&quot;]\n    HALLUCINATION[\&quot;hallucination&lt;br/&gt;_check_node\&quot;]\n    END_NODE[\&quot;END\&quot;]\n\n    START --&gt; RETRIEVE_FROM_START[ ]\n    style RETRIEVE_FROM_START height:0px,width:0px,stroke:none,fill:none\n    START -.-&gt; DECOMPOSE\n    DECOMPOSE -.-&gt; RETRIEVE\n    RETRIEVE -.-&gt; GRADE\n\n    GRADE -.-&gt;|\&quot;[needs_rewrite]\&quot;| REWRITE\n    GRADE -.-&gt;|\&quot;[docs_sufficient]\&quot;| MULTI_HOP\n    GRADE -.-&gt;|\&quot;[docs_sufficient]\&quot;| GEN_SUB_Q\n\n    REWRITE -.-&gt; RETRIEVE\n    MULTI_HOP -.-&gt;|\&quot;(còn thiếu)\&quot;| GEN_SUB_Q\n    MULTI_HOP -.-&gt;|\&quot;(đã đủ dữ liệu)\&quot;| GEN_ANSWER\n\n    GEN_ANSWER -.-&gt; HALLUCINATION\n    HALLUCINATION -.-&gt; END_NODE\n\n    classDef darkBox fill:#121212,stroke:#ffffff,stroke-width:1.5px,color:#ffffff,stroke-dasharray: 4 4;\n    class START,DECOMPOSE,RETRIEVE,GRADE,REWRITE,MULTI_HOP,GEN_SUB_Q,GEN_ANSWER,HALLUCINATION,END_NODE darkBox;&quot;,&#xa;  &quot;config&quot;: null&#xa;}" id="mF6i2I-UvG-eMGTX8esO-13">
+          <mxCell connectable="0" parent="1" style="group;transparentBounds=1;editIcon=1;lockedGroup=0;groupPadding=10;fontFamily=Times New Roman;fontSize=18;" vertex="1">
+            <mxGeometry as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:START-&gt;RETRIEVE_FROM_START#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.86;exitY=1;entryX=0;entryY=NaN;" mermaidBaseValue="" id="mF6i2I-UvG-eMGTX8esO-25">
+          <mxCell edge="1" parent="mF6i2I-UvG-eMGTX8esO-13" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.86;exitY=1;entryX=0;entryY=NaN;rounded=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="372" y="69" />
+              </Array>
+              <mxPoint x="336.5799999999999" y="44.000000000000455" as="sourcePoint" />
+              <mxPoint x="NaN" y="151" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <mxCell id="mF6i2I-UvG-eMGTX8esO-37" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=21;" value="Query" vertex="1">
+          <mxGeometry height="60" width="120" x="300" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="mF6i2I-UvG-eMGTX8esO-39" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Times New Roman;fontSize=21;" value="Naive RAG" vertex="1">
+          <mxGeometry height="30" width="150" x="100" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="mF6i2I-UvG-eMGTX8esO-40" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=21;" value="Retrival" vertex="1">
+          <mxGeometry height="60" width="120" x="300" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="mF6i2I-UvG-eMGTX8esO-41" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=21;" value="LLM generate" vertex="1">
+          <mxGeometry height="60" width="120" x="300" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="mF6i2I-UvG-eMGTX8esO-42" edge="1" parent="1" source="mF6i2I-UvG-eMGTX8esO-37" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Times New Roman;fontSize=21;" target="mF6i2I-UvG-eMGTX8esO-40" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="460" y="360" as="sourcePoint" />
+            <mxPoint x="510" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mF6i2I-UvG-eMGTX8esO-44" edge="1" parent="1" source="mF6i2I-UvG-eMGTX8esO-40" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontFamily=Times New Roman;fontSize=21;" target="mF6i2I-UvG-eMGTX8esO-41" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="370" y="330" as="sourcePoint" />
+            <mxPoint x="370" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
