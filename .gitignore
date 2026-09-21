@@ -1,0 +1,25 @@
+# Môi trường ảo
+.venv/
+venv/
+ENV/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Biến môi trường nhạy cảm
+.env
+.env.*
+!.env.example
+
+# Vector DB & Local Storage data
+qdrant_storage/
+chroma_data/
+*.db
+*.sqlite3
+
+# OS Files
+Thumbs.db
+.DS_Store
